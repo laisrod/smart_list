@@ -1,4 +1,4 @@
-import { ListaInteligente } from "./components/ListaInteligente";
+import { ListaInteligente } from "./features/lista-inteligente/components/ListaInteligente";
 
 function App() {
   return <ListaInteligente />;
