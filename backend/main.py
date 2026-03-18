@@ -12,10 +12,12 @@ load_dotenv()
 
 app = FastAPI(title="ShoptimusAI API")
 
-# CORS para permitir chamadas do frontend em desenvolvimento local.
+cors_origins_env = os.getenv("BACKEND_CORS_ORIGINS", "http://localhost:5173")
+cors_origins = [origin.strip() for origin in cors_origins_env.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
